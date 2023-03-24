@@ -1,0 +1,28 @@
+---
+name: Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+      - name: Run pre-commit
+        uses: pre-commit/action@v3.0.0
+        # pre-commit/action is deprecated.
+        # See https://github.com/marketplace/actions/pre-commit.
+        #
+        # But we have to use it because pre-commit.ci doesn't
+        # seem to support Docker hooks currently on 2023/03/23.
