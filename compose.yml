@@ -1,0 +1,34 @@
+---
+services:
+  report:
+    image: ghcr.io/wasedatakeuchilab/labmail:0.0.0
+    environment:
+      TZ: Asia/Tokyo
+      LABMAIL_GOOGLE_OAUTH_FLOW_HOST: $GOOGLE_OAUTH_FLOW_HOST
+    volumes:
+      - type: bind
+        source: $REPORTDIR
+        target: /reports
+        read_only: true
+      - type: volume
+        source: labmail
+        target: /root/.config/labmail
+    working_dir: /reports
+    ports:
+      - 8080:8080
+    entrypoint: bash
+    command:
+      - -c
+      - |
+        YEAR=$(date "+%Y")
+        MONTH=$(date "+%-m")
+        WEEK=$(( ( $(date "+%-d") + 6 ) / 7 ))
+        labmail "$TO" "$FILEPATH" \
+        -s "$SUBJECT" \
+        -a "cc: $CC" \
+        -a "bcc: $BCC" \
+        --disallow-same-subjects \
+        $LABMAIL_ARGS \
+        # --dry-run -vv # Uncomment this line when debugging
+volumes:
+  labmail:
