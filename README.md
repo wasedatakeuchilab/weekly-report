@@ -9,7 +9,6 @@
   - [週報メールを送信](#週報メールを送信)
 - [発展例](#発展例)
   - [週報内容を標準入力から受け取る](#週報内容を標準入力から受け取る)
-  - [リモートホストで実行してローカルのブラウザでOAuth認可する](#リモートホストで実行してローカルのブラウザでoauth認可する)
 - [License](#license)
 
 ## 使い方
@@ -24,8 +23,8 @@
 次のコマンドを実行してリポジトリをクローンします。
 
 ```console
-$ git clone https://github.com/wasedatakeuchilab/weekly-report-system
-$ cd weekly-report-system
+$ git clone https://github.com/wasedatakeuchilab/weekly-report
+$ cd weekly-report
 ```
 
 ### 設定ファイルの作成・編集
@@ -87,10 +86,6 @@ $ docker compose run --rm --service-ports report
 ```console
 $ echo "This is a test" | docker compose run -iT --rm --service-ports report
 ```
-
-### リモートホストで実行してローカルのブラウザでOAuth認可する
-
-設定ファイルで`GOOGLE_OAUTH_FLOW_HOST=<remote-hostname>`とする。
 
 ## License
 
