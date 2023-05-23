@@ -18,7 +18,7 @@ repos:
       - id: requirements-txt-fixer
       - id: trailing-whitespace
   - repo: https://github.com/jumanjihouse/pre-commit-hook-yamlfmt
-    rev: 0.2.2
+    rev: 0.2.3
     hooks:
       - id: yamlfmt
         name: Format YAML files
@@ -27,7 +27,7 @@ repos:
           - --sequence=4
           - --offset=2
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.30.0
+    rev: v1.32.0
     hooks:
       - id: yamllint
         name: Lint YAML files
@@ -46,7 +46,7 @@ repos:
       - id: shellcheck
         name: Lint shell scripts
   - repo: https://github.com/hadolint/hadolint
-    rev: v2.12.0
+    rev: v2.12.1-beta
     hooks:
       - id: hadolint-docker
         name: Lint Dockerfiles
