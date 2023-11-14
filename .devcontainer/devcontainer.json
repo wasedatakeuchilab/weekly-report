@@ -1,23 +1,19 @@
 {
-  "name": "Ubuntu",
-  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu-22.04",
-  "mounts": [],
-  "runArgs": [],
-  "forwardPorts": [
-    8080
-  ],
+  "name": "Debian",
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:debian",
   "features": {
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
+    "ghcr.io/devcontainers-contrib/features/apt-packages:1": {
       "packages": "bash-completion"
     },
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
-    "ghcr.io/devcontainers/features/python:1": {}
+    "ghcr.io/devcontainers-contrib/features/pre-commit:2": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
   },
   "customizations": {
     "vscode": {
-      "settings": {},
       "extensions": [
         "esbenp.prettier-vscode",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github",
         "ms-azuretools.vscode-docker",
         "redhat.vscode-yaml",
         "timonwong.shellcheck",
@@ -25,13 +21,7 @@
       ]
     }
   },
-  "onCreateCommand": {
-    "Upgrade pip": "pip install -U pip"
-  },
   "postCreateCommand": {
-    "Install bash-completion": "echo 'source /etc/bash_completion' >> ~/.bashrc",
-    "Install git-completion": "echo 'source /usr/share/bash-completion/completions/git' >> ~/.bashrc",
-    "Install pre-commit": "pip install --user pre-commit && pre-commit install"
-  },
-  "remoteUser": "vscode"
+    "install pre-commit": "pre-commit install"
+  }
 }
