@@ -1,7 +1,7 @@
 ---
 services:
   report:
-    image: ghcr.io/wasedatakeuchilab/labmail:0.0.0
+    image: ghcr.io/wasedatakeuchilab/labmail:0.0.3
     environment:
       TZ: Asia/Tokyo
       LABMAIL_GOOGLE_OAUTH_FLOW_HOST: $GOOGLE_OAUTH_FLOW_HOST
