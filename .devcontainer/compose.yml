@@ -1,0 +1,9 @@
+---
+services:
+  main:
+    image: mcr.microsoft.com/vscode/devcontainers/base:debian
+    volumes:
+      - type: bind
+        source: ..
+        target: /workspaces/main
+    command: sleep infinity
