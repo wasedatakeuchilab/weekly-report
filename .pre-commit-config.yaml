@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.6.0
+    rev: v6.0.0
     hooks:
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
@@ -27,14 +27,14 @@ repos:
           - --sequence=4
           - --offset=2
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.38.0
     hooks:
       - id: yamllint
         name: Lint YAML files
         args:
           - --format=parsable
   - repo: https://github.com/maxwinterstein/shfmt-py
-    rev: v3.7.0.1
+    rev: v4.2.0
     hooks:
       - id: shfmt
         name: Format shell scripts
@@ -42,12 +42,12 @@ repos:
           - -w
           - -i=2
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
+    rev: v0.11.0.1-1
     hooks:
       - id: shellcheck
         name: Lint shell scripts
   - repo: https://github.com/AleksaC/hadolint-py
-    rev: v2.12.1b3
+    rev: v2.15.1
     hooks:
       - id: hadolint
         name: Lint Dockerfiles
